@@ -15,16 +15,10 @@ Including another URLconf
     2. Add a URL to urlpatterns:  path('blog/', include('blog.urls'))
 """
 from django.contrib import admin
-from django.urls import path
+from django.urls import path, include
 from events import views
 
 urlpatterns = [
-    path('admin/', admin.site.urls),
-    path('', views.event_list, name='event_list'),  # Event list page
-    path('event/<int:event_id>/', views.event_detail, name='event_detail'),  # Event detail page
-    path('event/<int:event_id>/attend/', views.attend_event, name='event_attend'),  # RSVP for event
-    path('event/create/', views.create_event, name='create_event'),  # Create event
-    path('event/<int:event_id>/update/', views.update_event, name='update_event'),  # Update event
-    path('event/<int:event_id>/delete/', views.delete_event, name='delete_event'),  # Delete event
-    path('location-autocomplete/', views.location_autocomplete, name='location_autocomplete'),
-] # + static(settings.MEDIA_URL, document_root=settings.MEDIA_ROOT)
+    path('events', include('events.urls'), name='event-urls'),  # Include events app URLs
+    path('admin/', admin.site.urls),]
+
