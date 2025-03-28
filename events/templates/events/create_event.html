@@ -1,0 +1,56 @@
+{% extends "base.html" %}
+
+{% block title %}
+Create Event
+{% endblock %}
+
+{% block content %}
+<div class="container mt-5">
+    <h2>Create an Event</h2>
+
+    <!-- Display success messages -->
+    {% if messages %}
+        <div class="alert alert-success" role="alert">
+            {% for message in messages %}
+                {{ message }}
+            {% endfor %}
+        </div>
+    {% endif %}
+
+    <form method="post" class="mt-4">
+        {% csrf_token %}
+        {{ form.as_p }}
+        <button type="submit" class="btn btn-primary">Create Event</button>
+    </form>
+</div>
+<script>
+    const locationInput = document.getElementById('location');
+    const suggestionsList = document.createElement('ul');
+    suggestionsList.classList.add('list-group', 'mt-2');
+    locationInput.parentNode.appendChild(suggestionsList);
+
+    locationInput.addEventListener('input', function () {
+        const query = locationInput.value;
+
+        if (query.length > 1) {
+            fetch(`/location-autocomplete/?q=${query}`)
+                .then(response => response.json())
+                .then(data => {
+                    suggestionsList.innerHTML = '';
+                    data.suggestions.forEach(suggestion => {
+                        const listItem = document.createElement('li');
+                        listItem.textContent = suggestion;
+                        listItem.classList.add('list-group-item');
+                        listItem.addEventListener('click', () => {
+                            locationInput.value = suggestion;
+                            suggestionsList.innerHTML = '';
+                        });
+                        suggestionsList.appendChild(listItem);
+                    });
+                });
+        } else {
+            suggestionsList.innerHTML = '';
+        }
+    });
+</script>
+{% endblock %}

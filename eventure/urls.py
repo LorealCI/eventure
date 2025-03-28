@@ -26,4 +26,5 @@ urlpatterns = [
     path('event/create/', views.create_event, name='create_event'),  # Create event
     path('event/<int:event_id>/update/', views.update_event, name='update_event'),  # Update event
     path('event/<int:event_id>/delete/', views.delete_event, name='delete_event'),  # Delete event
+    path('location-autocomplete/', views.location_autocomplete, name='location_autocomplete'),
 ]
