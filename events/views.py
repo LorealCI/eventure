@@ -1,5 +1,7 @@
 from django.shortcuts import render, get_object_or_404, redirect
 from django.contrib.auth.decorators import login_required, user_passes_test
+import requests
+from django.http import JsonResponse
 from django.contrib import messages
 from .models import Event, RSVP
 from .forms import EventForm  # Form for creating events
@@ -62,9 +64,10 @@ def create_event(request):
         if form.is_valid():
             event = form.save(commit=False)
             event.organiser = request.user  # Set the logged-in user as the organiser
+            event.is_active = True  # Set the event as active
             event.save()
-            messages.success(request, 'Event created successfully!')
-            return redirect('event_detail', event_id=event.id)
+            messages.success(request, 'Event created successfully!')  # Add success message
+            return redirect('create_event')  # Redirect to the same page to reset the form
     else:
         form = EventForm()
 
@@ -109,3 +112,32 @@ def delete_event(request, event_id):
         return redirect('event_list')
 
     return render(request, 'events/delete_event.html', {'event': event})
+
+
+def location_autocomplete(request):
+    query = request.GET.get('q', '')  # Get the query from the request
+    if query:
+        # Use Nominatim API to fetch location data
+        url = "https://nominatim.openstreetmap.org/search"
+        params = {
+            'q': query,
+            'countrycodes': 'gb',  # Limit to Great Britain (England, Scotland, Wales)
+            'addressdetails': 1,
+            'format': 'json',
+            'limit': 5,  # Limit the number of results
+        }
+        response = requests.get(url, params=params)
+        if response.status_code == 200:
+            data = response.json()
+            # Extract street names or postcodes from the response
+            suggestions = [
+                f"{item['address'].get('road', '')}, {item['address'].get('postcode', '')}".strip(', ')
+                for item in data
+                if 'road' in item['address'] or 'postcode' in item['address']
+            ]
+        else:
+            suggestions = []
+    else:
+        suggestions = []
+
+    return JsonResponse({'suggestions': suggestions})
