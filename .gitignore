@@ -1,17 +1,6 @@
-# virtual environments & Django secrets & config
-.venv
-venv/
+.venv/
 env.py
-.env
-#python
 __pycache__/
-*.pyc
-*.pyo
-*.pyd
-
-#databases & Logs
-*.db
-*.sqlite3
-*.log
+db.sqlite3
 
 
