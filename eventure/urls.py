@@ -27,4 +27,4 @@ urlpatterns = [
     path('event/<int:event_id>/update/', views.update_event, name='update_event'),  # Update event
     path('event/<int:event_id>/delete/', views.delete_event, name='delete_event'),  # Delete event
     path('location-autocomplete/', views.location_autocomplete, name='location_autocomplete'),
-]
+] # + static(settings.MEDIA_URL, document_root=settings.MEDIA_ROOT)

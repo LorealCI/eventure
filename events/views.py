@@ -60,7 +60,7 @@ def is_event_organiser(user):
 @user_passes_test(is_event_organiser, login_url='event_list')
 def create_event(request):
     if request.method == 'POST':
-        form = EventForm(request.POST)
+        form = EventForm(request.POST, request.FILES)
         if form.is_valid():
             event = form.save(commit=False)
             event.organiser = request.user  # Set the logged-in user as the organiser
