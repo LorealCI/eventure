@@ -19,6 +19,6 @@ from django.urls import path, include
 from events import views
 
 urlpatterns = [
-    path('events', include('events.urls'), name='event-urls'),  # Include events app URLs
+    path('', include('events.urls'), name='event-urls'),  # Include events app URLs
     path('admin/', admin.site.urls),]
 
