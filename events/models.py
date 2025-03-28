@@ -12,6 +12,7 @@ class Event(models.Model):
     organiser = models.ForeignKey(User, related_name='events', on_delete=models.CASCADE)
     is_active = models.BooleanField(default=True)
     max_capacity = models.PositiveIntegerField(default=50)
+    image = models.ImageField(upload_to='events/images/', null=True, blank=True)
 
     def spaces_left(self):
         # Counts the number of RSVPs for this event.

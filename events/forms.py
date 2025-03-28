@@ -7,7 +7,7 @@ from .models import Event
 class EventForm(forms.ModelForm):
     class Meta:
         model = Event
-        fields = ['title', 'description', 'location', 'event_date', 'event_time', 'max_capacity']
+        fields = ['image', 'title', 'description', 'location', 'event_date', 'event_time', 'max_capacity']
         widgets = {
             'event_date': forms.DateInput(attrs={'type': 'date'}),
             'event_time': forms.TimeInput(attrs={'type': 'time'}),
@@ -15,7 +15,7 @@ class EventForm(forms.ModelForm):
                 'class': 'form-control',
                 'placeholder': 'Start typing a location...',
                 'id': 'location',  # Add an ID for JavaScript integration
-                'autocomplete': 'off',  # Disable browser's default autocomplete
+                'autocomplete': 'on',  # Disable browser's default autocomplete
             }),
         }
 
