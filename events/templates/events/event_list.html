@@ -6,11 +6,20 @@ Events
 
 {% block content %}
     <h2>Events</h2>
-    <ul>
+    <div class="row">
         {% for event in events %}
-            <li>{{ event.title }}</li>
+        <div class="col-md-4 mb-4">
+            <div class="card" style="width: 18rem;">
+                <img src="#" class="card-img-top" alt="{{ event.title }}">
+                <div class="card-body">
+                    <h5 class="card-title">{{ event.title }}</h5>
+                    <p class="card-text">{{ event.description|truncatewords:20 }}</p>
+                    <a href="{% url 'event_detail' event.id %}" class="btn btn-primary">View Details</a>
+                </div>
+            </div>
+        </div>
         {% endfor %}
-    </ul>
+    </div>
 {% endblock %}
 
 {% block sidebar %}
