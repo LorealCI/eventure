@@ -5,11 +5,13 @@ from .models import Event, RSVP
 from .forms import EventForm  # Form for creating events
 
 
+
 # Create your views here.
 # View to display all the events (index page).
 def event_list(request):
     events = Event.objects.filter(is_active=True).order_by('event_time')  # Shows the active events.
     return render(request, 'events/event_list.html', {'events': events})
+    
 
 
 # View to display the details of a individual event.
