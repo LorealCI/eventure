@@ -21,4 +21,4 @@ from events import views
 urlpatterns = [
     path('events', include('events.urls'), name='event-urls'),  # Include events app URLs
     path('admin/', admin.site.urls),
-]
+
