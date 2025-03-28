@@ -1,0 +1,24 @@
+{% extends "base.html" %}
+
+{% block title %}
+Events
+{% endblock %}
+
+{% block content %}
+    <h2>Events</h2>
+    <ul>
+        {% for event in events %}
+            <li>{{ event.title }}</li>
+        {% endfor %}
+    </ul>
+{% endblock %}
+
+{% block sidebar %}
+    <h2>Upcoming Events</h2>
+    <ul>
+        {% for event in upcoming_events %}
+            <li>{{ event.title }}</li>
+        {% endfor %}
+    </ul>
+{% endblock %}
+
