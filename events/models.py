@@ -24,6 +24,9 @@ class Event(models.Model):
     def __str__(self):
         return self.title
 
+class Meta:
+        ordering = ["-event_time"]
+
 
 class RSVP(models.Model):
     user = models.ForeignKey(User, related_name='rsvps', on_delete=models.CASCADE)
