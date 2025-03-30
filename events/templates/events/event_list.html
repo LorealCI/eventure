@@ -5,48 +5,43 @@ Events
 {% endblock %}
 
 {% block content %}
-{% block sidebar %}
-    <h2>Upcoming Events</h2>
-    <ul>
-        {% for event in upcoming_events %}
-            <li>{{ event.title }}</li>
-        {% endfor %}
-    </ul>
-{% endblock %}
-    <div class="container mt-5">
-        <h2>Events</h2>
-        <div class="row mb-3">
-            <div class="col-md-4">
-                <form method="get" id="sort-form" class="sort-form">
-                    <div class="form-group">
-                        <label for="sort_by">Sort by:</label>
-                        <select name="sort_by" id="sort_by" class="form-control" onchange="document.getElementById('sort-form').submit();">
-                            <option value="date_desc" {% if sort_by == 'date_desc' %}selected{% endif %}>Date (Newest First)</option>
-                            <option value="date_asc" {% if sort_by == 'date_asc' %}selected{% endif %}>Date (Oldest First)</option>
-                            <option value="title_asc" {% if sort_by == 'title_asc' %}selected{% endif %}>Title (A-Z)</option>
-                            <option value="title_desc" {% if sort_by == 'title_desc' %}selected{% endif %}>Title (Z-A)</option>
-                        </select>
-                    </div>
+<div class="container">
+    <h1 class="page-title">Events</h1>
+
+    <div class="event-list">
+        {% for event in events %}
+        <div class="event-card">
+            <div class="event-image">
+                {% if event.image %}
+                <img src="{{ event.image.url }}" alt="{{ event.title }}">
+                {% else %}
+                <div class="no-image">No Image Available</div>
+                {% endif %}
+            </div>
+            <div class="event-details">
+                <h2 class="event-title">{{ event.title }}</h2>
+                <p class="event-description">{{ event.description|truncatewords:20 }}</p>
+                <p class="event-location">Location: {{ event.location }}</p>
+                <p class="event-date-time">{{ event.event_date }} at {{ event.event_time }}</p>
+                <p class="event-status {% if event.is_full %}full{% else %}available{% endif %}">
+                    {% if event.is_full %}
+                        Event Full
+                    {% else %}
+                        Spaces Left: {{ event.spaces_left }}
+                    {% endif %}
+                </p>
+                <a href="{% url 'event_detail' event.id %}" class="event-link">View Details</a>
+                {% if not event.is_full %}
+                <form action="#" method="post">
+                    {% csrf_token %}
+                    <button type="submit" class="rsvp-btn">RSVP</button>
                 </form>
+                {% endif %}
             </div>
         </div>
-        <div class="row">
-            {% for event in events %}
-                <div class="col-md-4 mb-4">
-                    <div class="card">
-                        <div class="card-body">
-                            <h5 class="card-title">{{ event.title }}</h5>
-                            <p class="card-text">{{ event.description|truncatewords:20 }}</p>
-                            <p class="card-text"><small class="text-muted">{{ event.event_date }} - {{ event.event_time }}</small></p>
-                            <a href="{% url 'event_detail' event.id %}" class="btn btn-primary">View Details</a>
-                        </div>
-                    </div>
-                </div>
-            {% empty %}
-                <p>No events available.</p>
-            {% endfor %}
-        </div>
+        {% endfor %}
     </div>
+</div>
 {% endblock %}
 
 

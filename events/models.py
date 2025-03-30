@@ -1,5 +1,6 @@
 from django.db import models
 from django.contrib.auth.models import User
+from datetime import date
 
 
 # Create your models here.
@@ -7,7 +8,7 @@ class Event(models.Model):
     title = models.CharField(max_length=200)
     description = models.TextField()
     location = models.CharField(max_length=255)
-    event_date = models.DateField(default='2025-01-01')
+    event_date = models.DateField(default=date.today)
     event_time = models.TimeField()
     organiser = models.ForeignKey(User, related_name='events', on_delete=models.CASCADE)
     is_active = models.BooleanField(default=True)
