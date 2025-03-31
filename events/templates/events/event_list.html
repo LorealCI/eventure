@@ -32,11 +32,9 @@ Events
                 </p>
                 <div class="button-container">
                     <a href="{% url 'event_detail' event.id %}" class="btn btn-primary event-link">View Details</a>
-                    {% if not event.is_full %}
-                        <form action="#" method="post">
-                            {% csrf_token %}
-                            <button type="submit" class="btn rsvp-btn">RSVP</button>
-                        </form>
+                    {% if request.user == event.organiser %}
+                        <a href="{% url 'update_event' event.id %}" class="btn btn-warning">Edit</a>
+                        <a href="{% url 'delete_event' event.id %}" class="btn btn-danger">Delete</a>
                     {% endif %}
                 </div>
             </div>
