@@ -30,13 +30,15 @@ Events
                         Spaces Left: {{ event.spaces_left }}
                     {% endif %}
                 </p>
-                <a href="{% url 'event_detail' event.id %}" class="event-link">View Details</a>
-                {% if not event.is_full %}
-                <form action="#" method="post">
-                    {% csrf_token %}
-                    <button type="submit" class="rsvp-btn">RSVP</button>
-                </form>
-                {% endif %}
+                <div class="button-container">
+                    <a href="{% url 'event_detail' event.id %}" class="btn btn-primary event-link">View Details</a>
+                    {% if not event.is_full %}
+                        <form action="#" method="post">
+                            {% csrf_token %}
+                            <button type="submit" class="btn rsvp-btn">RSVP</button>
+                        </form>
+                    {% endif %}
+                </div>
             </div>
         </div>
         {% endfor %}
