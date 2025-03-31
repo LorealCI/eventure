@@ -18,7 +18,7 @@ def home(request):
 
 # View to display all events.
 def event_list(request):
-    events = Event.objects.filter(is_active=True).order_by('event_time')  # Shows the active events.
+    events = Event.objects.filter(is_active=True).order_by('start_time')  # Shows the active events.
     return render(request, 'events/event_list.html', {'events': events})
 
 
