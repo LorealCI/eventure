@@ -97,7 +97,7 @@ def update_event(request, event_id):
         return redirect('event_list')
 
     if request.method == 'POST':
-        form = EventForm(request.POST, instance=event)
+        form = EventForm(request.POST, request.FILES, instance=event)
         if form.is_valid():
             form.save()
             messages.success(request, 'Event updated successfully!')
