@@ -9,7 +9,14 @@ from .forms import EventForm  # Form for creating events
 
 
 # Create your views here.
-# View to display all the events (index page).
+# View to display the home page.
+def home(request):
+    # Get a few featured events to display.
+    featured_events = Event.objects.filter(is_featured=True, is_active=True)[:5]  # Adjust as needed
+    return render(request, 'events/home.html', {'featured_events': featured_events})
+
+
+# View to display all events.
 def event_list(request):
     events = Event.objects.filter(is_active=True).order_by('event_time')  # Shows the active events.
     return render(request, 'events/event_list.html', {'events': events})

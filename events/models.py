@@ -14,6 +14,7 @@ class Event(models.Model):
     is_active = models.BooleanField(default=True)
     max_capacity = models.PositiveIntegerField(default=50)
     image = models.ImageField(upload_to='events/images/', null=True, blank=True)
+    is_featured = models.BooleanField(default=False)
 
     def spaces_left(self):
         # Counts the number of RSVPs for this event.
@@ -27,8 +28,9 @@ class Event(models.Model):
     def __str__(self):
         return self.title
 
+
 class Meta:
-        ordering = ["-event_time"]
+    ordering = ["-event_time"]
 
 
 class RSVP(models.Model):
