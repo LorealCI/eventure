@@ -131,6 +131,11 @@ h1, h2, h3, h4, h5, h6 {
     display: flex;
     align-items: center;
 }
+/* About Us Page*/
+
+.about {
+    padding-bottom: 20px;
+}
 
 /* Add icons for location and time */
 .event-location::before {
@@ -168,13 +173,13 @@ h1, h2, h3, h4, h5, h6 {
     font-weight: 500;
     padding: 10px 20px;
     transition: all 0.3s ease;
-    box-shadow: none !important;
+    box-shadow: none;
 }
 
 .event-link, .btn-primary {
-    background-color: #3498db !important;
-    border-color: #3498db !important;
-    color: #fff !important;
+    background-color: #3498db;
+    border-color: #3498db;
+    color: #fff;
     padding: 10px 20px;
     text-decoration: none;
     border-radius: 6px;
@@ -184,15 +189,15 @@ h1, h2, h3, h4, h5, h6 {
 }
 
 .event-link:hover, .btn-primary:hover {
-    background-color: #2980b9 !important;
-    border-color: #2980b9 !important;
-    color: white !important;
+    background-color: #2980b9;
+    border-color: #2980b9;
+    color: white;
 }
 
 .rsvp-btn, .btn-success {
-    background-color: #2ecc71 !important;
-    border-color: #2ecc71 !important;
-    color: #fff !important;
+    background-color: #2ecc71;
+    border-color: #2ecc71;
+    color: #fff;
     padding: 10px 20px;
     border-radius: 6px;
     font-size: 14px;
@@ -203,19 +208,19 @@ h1, h2, h3, h4, h5, h6 {
 }
 
 .rsvp-btn:hover, .btn-success:hover {
-    background-color: #27ae60 !important;
-    border-color: #27ae60 !important;
+    background-color: #27ae60;
+    border-color: #27ae60;
 }
 
 .btn-secondary {
-    background-color: #95a5a6 !important;
-    border-color: #95a5a6 !important;
-    color: white !important;
+    background-color: #95a5a6;
+    border-color: #95a5a6;
+    color: white;
 }
 
 .btn-secondary:hover {
-    background-color: #7f8c8d !important;
-    border-color: #7f8c8d !important;
+    background-color: #7f8c8d;
+    border-color: #7f8c8d;
 }
 
 /* Event detail page */
@@ -319,11 +324,11 @@ textarea.form-control {
 
 /* Text colors */
 .text-success {
-    color: #2ecc71 !important;
+    color: #2ecc71;
 }
 
 .text-danger {
-    color: #e74c3c !important;
+    color: #e74c3c;
 }
 
 /* Responsive adjustments */

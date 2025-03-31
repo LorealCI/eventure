@@ -22,6 +22,10 @@ def event_list(request):
     return render(request, 'events/event_list.html', {'events': events})
 
 
+def about(request):
+    return render(request, 'events/about.html')
+
+
 # View to display the details of a individual event.
 def event_detail(request, event_id):
     event = get_object_or_404(Event, id=event_id)
