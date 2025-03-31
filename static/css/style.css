@@ -50,6 +50,43 @@ h1, h2, h3, h4, h5, h6 {
     color: #3498db;
 }
 
+/* Hero section */
+  /* Improved styling for carousel captions */
+  .carousel-caption {
+    background:linear-gradient(90deg, #3498db, #5441ed, #03f6e5);
+    border-radius: 5px;
+    padding: 10px 20px;
+    display: inline-block; 
+    bottom: 20px; /* Position it a bit higher from the bottom */
+    left: 50%; /* Center horizontally */
+    transform: translateX(-50%); /* Center alignment */
+    text-align: center; /* Center-align the text */
+}
+
+.carousel-caption h5 {
+    font-size: 1.5rem;
+    font-weight: bold;
+    margin-bottom: 10px;
+    color: black;
+    text-shadow: 1px 1px 3px rgba(0, 0, 0, 0.8); /* Text shadow for better readability */
+}
+
+.carousel-caption p {
+    font-size: 1rem;
+    color: black;
+    text-shadow: 1px 1px 2px rgba(0, 0, 0, 0.8);
+}
+.carousel-item img {
+    height: 500px; /* Set a fixed height */
+    object-fit: cover; /* Maintains aspect ratio and fills the container */
+    filter: brightness(0.8); /* Slightly darkens the images to make text more visible */
+}
+
+/* Optional: constrain the carousel width */
+.hero-content {
+    max-width: 1200px; /* Or whatever width looks good */
+    margin: 0 auto;
+}
 /* Page titles */
 .page-title {
     text-align: center;
