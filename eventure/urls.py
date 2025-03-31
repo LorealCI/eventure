@@ -20,5 +20,6 @@ from events import views
 
 urlpatterns = [
     path('', include('events.urls'), name='event-urls'),  # Include events app URLs
+    path("accounts/", include("allauth.urls")),
     path('admin/', admin.site.urls),]
 
