@@ -64,7 +64,16 @@ This page displays all of the key details for the events. The users can click on
 The events cards have the option for users to display a picture to advertise the events and make the site more engaging. Because we were making examples, we found pictures on [pexels](https://www.pexels.com/). For example, here are some of the images we used:
 ![pokemon](static/images/pexels-cards.jpg)
 ![easter](static/images/pexels-easter.jpg)
-![easter](static/images/pexels-outdoor-cinema.jpg)
+![cinema](static/images/pexels-outdoor-cinema.jpg)
+And here are the links to the other images:
+
+80' disco: https://www.pexels.com/photo/vibrant-disco-balls-ceiling-art-installation-31266655/
+r&b brunch: https://www.pexels.com/photo/a-man-in-a-hoodie-rapping-7972040/
+card show: https://www.pexels.com/photo/yu-gi-oh-trading-card-game-collection-on-table-31296168/
+well-being: https://www.pexels.com/photo/close-up-shot-of-a-person-sitting-on-a-yoga-mat-while-meditating-8534279/
+cocktails: https://www.pexels.com/photo/cocktail-and-orange-slices-16148201/
+conference: https://www.pexels.com/photo/people-sitting-watching-in-the-theater-301987/
+expo: https://www.pexels.com/photo/people-sitting-at-event-22669860/
 
 
 
