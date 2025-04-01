@@ -7,6 +7,7 @@ from .models import Event
 class EventForm(forms.ModelForm):
     class Meta:
         model = Event
+        exclude = ['is_active', 'organiser']
         fields = ['image', 'title', 'description', 'location', 'event_date', 'start_time', 'end_time', 'max_capacity', 'age_rating']
         widgets = {
             'event_date': forms.DateInput(attrs={'type': 'date'}),
