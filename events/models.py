@@ -1,6 +1,7 @@
 from django.db import models
 from django.contrib.auth.models import User
 from datetime import date
+from cloudinary.models import CloudinaryField
 
 
 # Create your models here.
@@ -9,12 +10,24 @@ class Event(models.Model):
     description = models.TextField()
     location = models.CharField(max_length=255)
     event_date = models.DateField(default=date.today)
-    event_time = models.TimeField()
+    start_time = models.TimeField(default="00:00")
+    end_time = models.TimeField(default="00:00")
     organiser = models.ForeignKey(User, related_name='events', on_delete=models.CASCADE)
     is_active = models.BooleanField(default=True)
     max_capacity = models.PositiveIntegerField(default=50)
-    image = models.ImageField(upload_to='events/images/', null=True, blank=True)
+    image = CloudinaryField('image', blank=True, null=True)
     is_featured = models.BooleanField(default=False)
+    age_rating = models.CharField(
+        max_length=20,
+        choices=[
+            ('All Ages', 'All Ages'),
+            ('5+', '5+'),
+            ('8+', '8+'),
+            ('13+', '13+'),
+            ('18+', '18+'),
+        ],
+        default='All Ages'
+    )
 
     def spaces_left(self):
         # Counts the number of RSVPs for this event.

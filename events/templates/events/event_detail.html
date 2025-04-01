@@ -18,7 +18,7 @@
             <h2 class="event-title">{{ event.title }}</h2>
             <p class="event-description">{{ event.description }}</p>
             <p class="event-location">Location: {{ event.location }}</p>
-            <p class="event-date-time">{{ event.event_date }} at {{ event.event_time }}</p>
+            <p class="event-date-time">{{ event.event_date }} from {{ event.start_time }} to {{ event.end_time }}</p>
             <p class="event-status {% if event.is_full %}full{% else %}available{% endif %}">
                 {% if event.is_full %}
                     Event Full
