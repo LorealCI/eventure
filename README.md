@@ -28,7 +28,7 @@ The live project can found here: <a href="" target="_blank">Live Project</a>
 # User stories
 We used an agile workflow for the project, creating user stories and adding them to the Github project kanban board, including small actionable steps to achieve an MVP and also additional potential features, such as attaching the Google maps API to the location of the events. 
 
-Here are the user stories: (You can also view the user stories in the [GitHub Projects Kanban Board](https://github.com/users/LorealCI/projects/9) for this website.)
+You are view the user stories here in the [GitHub Projects Kanban Board](https://github.com/users/LorealCI/projects/9)
 
 
 # Wireframes
@@ -36,8 +36,8 @@ Here are the user stories: (You can also view the user stories in the [GitHub Pr
 ![Computer & Mobile phone Wireframe](static/images/event-app-wireframe.png)
 
 # ERD
-I created the ERD with chatGPT
-Throughout the project we updated the event model field to include more features that we wanted.
+We created the ERD with chatGPT
+Throughout the project we updated the event model field to include more features that we wanted to include.
 
 ![ERD](static/images/basic-erd.png)
 
@@ -60,7 +60,6 @@ The home page features a carousel of the kinds of events the users can find & us
 
 # Events page (& events detail page) 
 This page displays all of the key details for the events. The users can click on the event to see more details of any particular event.
-
 
 # About Us page
 This page tells the users about the purpose of the website & why we made it.
@@ -109,6 +108,7 @@ We utilised Microsoft Co-pilot which is built into VS code, ChatGPT & Claude for
 <br>
 
 # Testing
+To be completed at a later date!
 
 
 ## Future Enhancements
