@@ -1,5 +1,5 @@
 # Eventure
-![Website layout](static/images/home-page.png)
+![Website layout](static/images/eventure-homepage-new.png)
 # Overview
 Eventure is our hackathon project to make a functioning full-stack website with CRUD functionality using python, HTML, CSS & Javascript. We decided to create an app where approved users can post events and general users can browse upcoming events and rsvp to them. 
 
@@ -74,8 +74,6 @@ well-being: https://www.pexels.com/photo/close-up-shot-of-a-person-sitting-on-a-
 cocktails: https://www.pexels.com/photo/cocktail-and-orange-slices-16148201/
 conference: https://www.pexels.com/photo/people-sitting-watching-in-the-theater-301987/
 expo: https://www.pexels.com/photo/people-sitting-at-event-22669860/
-
-
 
 # About Us page
 This page tells the users about the purpose of the website & why we made it.
