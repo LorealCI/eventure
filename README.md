@@ -61,6 +61,13 @@ The home page features a carousel of the kinds of events the users can find & us
 # Events page (& events detail page) 
 This page displays all of the key details for the events. The users can click on the event to see more details of any particular event.
 
+The events cards have the option for users to display a picture to advertise the events and make the site more engaging. Because we were making examples, we found pictures on [pexels](https://www.pexels.com/). For example, here are some of the images we used:
+![pokemon](static/images/pexels-cards.jpg)
+![easter](static/images/pexels-easter.jpg)
+![easter](static/images/pexels-outdoor-cinema.jpg)
+
+
+
 # About Us page
 This page tells the users about the purpose of the website & why we made it.
 
