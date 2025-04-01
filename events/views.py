@@ -1,11 +1,12 @@
 from django.shortcuts import render, get_object_or_404, redirect
 from django.views import generic
 from django.contrib.auth.decorators import login_required, user_passes_test
+from django.core.paginator import Paginator, EmptyPage, PageNotAnInteger
 import requests
 from django.http import JsonResponse
 from django.contrib import messages
 from .models import Event, RSVP
-from .forms import EventForm  # Form for creating events
+from .forms import EventForm  
 
 
 # Create your views here.
@@ -19,6 +20,16 @@ def home(request):
 # View to display all events.
 def event_list(request):
     events = Event.objects.filter(is_active=True).order_by('start_time')  # Shows the active events.
+    paginator = Paginator(events, 8)  # Show 8 events per page
+
+    page = request.GET.get('page')  # Get the page number from the query parameters
+    try:
+        events = paginator.page(page)
+    except PageNotAnInteger:
+        events = paginator.page(1)  # If page is not an integer, deliver the first page
+    except EmptyPage:
+        events = paginator.page(paginator.num_pages)  # If page is out of range, deliver the last page
+
     return render(request, 'events/event_list.html', {'events': events})
 
 
