@@ -12,7 +12,7 @@ from .forms import EventForm  # Form for creating events
 # View to display the home page.
 def home(request):
     # Get a few featured events to display.
-    featured_events = Event.objects.filter(is_featured=True, is_active=True)[:5]  # Adjust as needed
+    featured_events = Event.objects.filter(is_featured=True, is_active=True)[:4]  # Adjust as needed
     return render(request, 'events/home.html', {'featured_events': featured_events})
 
 
@@ -124,32 +124,3 @@ def delete_event(request, event_id):
         return redirect('event_list')
 
     return render(request, 'events/delete_event.html', {'event': event})
-
-
-def location_autocomplete(request):
-    query = request.GET.get('q', '')  # Get the query from the request
-    if query:
-        # Use Nominatim API to fetch location data
-        url = "https://nominatim.openstreetmap.org/search"
-        params = {
-            'q': query,
-            'countrycodes': 'gb',  # Limit to Great Britain (England, Scotland, Wales)
-            'addressdetails': 1,
-            'format': 'json',
-            'limit': 5,  # Limit the number of results
-        }
-        response = requests.get(url, params=params)
-        if response.status_code == 200:
-            data = response.json()
-            # Extract street names or postcodes from the response
-            suggestions = [
-                f"{item['address'].get('road', '')}, {item['address'].get('postcode', '')}".strip(', ')
-                for item in data
-                if 'road' in item['address'] or 'postcode' in item['address']
-            ]
-        else:
-            suggestions = []
-    else:
-        suggestions = []
-
-    return JsonResponse({'suggestions': suggestions})

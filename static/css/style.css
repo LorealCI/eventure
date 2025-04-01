@@ -4,17 +4,18 @@
 /* Base styles - Override Bootstrap */
 body {
     font-family: 'Open Sans', sans-serif;
-    background-color: #f4f4f4;
+    background-color: #f8f5f2;
     margin: 0;
     padding: 0;
-    color: #555;
+    color: #4a4a4a;
     line-height: 1.6;
+    padding-bottom: 15px;
 }
 
 h1, h2, h3, h4, h5, h6 {
     font-family: 'Montserrat', sans-serif;
-    font-weight: 600;
-    color: #333;
+    font-weight: 700;
+    color: #4a4a4a;
 }
 
 .container {
@@ -26,36 +27,96 @@ h1, h2, h3, h4, h5, h6 {
 
 /* Navigation - Override Bootstrap */
 .navbar {
-    background-color: white;
+    background-color: #4a4a4a;
     box-shadow: 0 2px 4px rgba(0, 0, 0, 0.1);
     padding: 15px 0;
 }
 
 .navbar-brand {
     font-family: 'Montserrat', sans-serif;
-    font-weight: 600;
-    color: #3498db;
+    font-weight: 700;
+    color: #d4af37;
     font-size: 1.8em;
 }
 
 .navbar-light .navbar-nav .nav-link {
-    color: #555;
+    color: #fff;
     transition: color 0.3s;
     font-weight: 500;
     padding: 8px 15px;
+    font-size: 1em;
 }
 
 .navbar-light .navbar-nav .nav-link:hover, 
 .navbar-light .navbar-nav .nav-link.active {
-    color: #3498db;
+    color: #d4af37;
 }
 
+
+/* Hero section */
+.hero {
+    padding-bottom: 20px;
+}
+
+.carousel-item img {
+    height: 500px;
+    object-fit: cover;
+    filter: brightness(0.85);
+}
+
+.carousel-caption {
+    background-color: rgba(0, 0, 0, 0.5); /* Simpler, semi-transparent background */
+    border-radius: 8px;
+    padding: 20px 25px;
+    max-width: 80%;
+    bottom: 40px; 
+    left: 40px; /* Left-aligned instead of centered */
+    text-align: left;
+    width: auto;
+    display: inline-block;
+}
+
+.carousel-caption h5 {
+    font-size: 2rem;
+    font-weight: 700;
+    margin-bottom: 12px;
+    color: white;
+    line-height: 1.2;
+}
+
+.carousel-caption p {
+    font-size: 1.2rem;
+    color: rgba(255, 255, 255, 0.9);
+    font-weight: 400;
+    margin-bottom: 0;
+}
+
+/* Add fade-in animation for the hero section */
+@keyframes fadeIn {
+    from {
+        opacity: 0;
+    }
+    to {
+        opacity: 1;
+    }
+}
+
+.carousel-item img {
+    animation: fadeIn 1s ease-in-out;
+}
+
+/* Optional: constrain the carousel width */
+.hero-content {
+    max-width: 1200px;
+    margin: 0 auto;
+    position: relative;
+}
 /* Page titles */
 .page-title {
     text-align: center;
     font-size: 2.2em;
     margin: 30px 0;
-    color: #333;
+    color: #4a4a4a;
 }
 
 /* Event cards */
@@ -67,7 +128,11 @@ h1, h2, h3, h4, h5, h6 {
 }
 
 .event-card {
-    background-color: #fff;
+    display: flex; /* Use flexbox for card content */
+    flex-direction: column; /* Stack content vertically */
+    justify-content: space-between; /* Distribute content evenly */
+    height: 100%; /* Ensure cards stretch to fill the available height */
+    background-color: #fffaf3;
     border-radius: 10px;
     box-shadow: 0 6px 12px rgba(0, 0, 0, 0.08);
     overflow: hidden;
@@ -76,8 +141,8 @@ h1, h2, h3, h4, h5, h6 {
 }
 
 .event-card:hover {
-    transform: translateY(-8px);
-    box-shadow: 0 12px 20px rgba(0, 0, 0, 0.12);
+    transform: translateY(-10px);
+    transition: transform 0.3s ease, box-shadow 0.3s ease;
 }
 
 .event-image {
@@ -108,25 +173,37 @@ h1, h2, h3, h4, h5, h6 {
     font-size: 14px;
 }
 
+.featured-events .event-list {
+    display: grid; /* Ensure grid layout is applied */
+    grid-template-columns: repeat(auto-fit, minmax(250px, 1fr)); /* Responsive grid */
+    gap: 20px; /* Space between cards */
+    justify-content: center; /* Horizontally center the cards */
+    align-items: center; /* Vertically align the cards */
+    margin: 0 auto; /* Center the grid container itself */
+    border-radius: 10px;
+    padding: 15px;
+}
+
 .event-details {
     padding: 20px;
+    flex-grow: 1;
 }
 
 .event-title {
     font-size: 1.5em;
     margin-bottom: 12px;
-    color: #333;
+    color: #4a4a4a;
 }
 
 .event-description {
-    color: #555;
+    color: #6b6b6b;
     margin-bottom: 15px;
-    font-size: 15px;
+    font-size: 1rem;
 }
 
 .event-location, .event-date-time {
-    color: #777;
-    font-size: 14px;
+    color: #8c8c8c;
+    font-size: 0.9rem;
     margin-bottom: 8px;
     display: flex;
     align-items: center;
@@ -154,7 +231,7 @@ h1, h2, h3, h4, h5, h6 {
     padding: 5px 10px;
     border-radius: 4px;
     display: inline-block;
-    font-size: 14px;
+    font-size: 0.9rem;
 }
 
 .event-status.full {
@@ -167,7 +244,7 @@ h1, h2, h3, h4, h5, h6 {
     color: #2ecc71;
 }
 
-/* Buttons - Override Bootstrap */
+/* Buttons */
 .btn {
     border-radius: 6px;
     font-weight: 500;
@@ -177,8 +254,8 @@ h1, h2, h3, h4, h5, h6 {
 }
 
 .event-link, .btn-primary {
-    background-color: #3498db;
-    border-color: #3498db;
+    background-color: #d4af37;
+    border-color: #d4af37;
     color: #fff;
     padding: 10px 20px;
     text-decoration: none;
@@ -189,8 +266,8 @@ h1, h2, h3, h4, h5, h6 {
 }
 
 .event-link:hover, .btn-primary:hover {
-    background-color: #2980b9;
-    border-color: #2980b9;
+    background-color: #b8860b;
+    border-color: #b8860b;
     color: white;
 }
 
@@ -213,19 +290,19 @@ h1, h2, h3, h4, h5, h6 {
 }
 
 .btn-secondary {
-    background-color: #95a5a6;
-    border-color: #95a5a6;
+    background-color: #6b6b6b;
+    border-color: #6b6b6b;
     color: white;
 }
 
 .btn-secondary:hover {
-    background-color: #7f8c8d;
-    border-color: #7f8c8d;
+    background-color: #4a4a4a;
+    border-color: #4a4a4a;
 }
 
 /* Event detail page */
 .event-detail {
-    background-color: white;
+    background-color: #ffffff;
     border-radius: 10px;
     padding: 30px;
     box-shadow: 0 6px 12px rgba(0, 0, 0, 0.08);
@@ -251,7 +328,7 @@ h1, h2, h3, h4, h5, h6 {
     line-height: 1.7;
 }
 
-/* Forms - Override Bootstrap */
+/* Forms */
 form {
     margin-top: 20px;
 }
@@ -275,7 +352,7 @@ form:not(.event-card form):not(.event-details form) {
 
 label {
     font-weight: 600;
-    color: #333;
+    color: #4a4a4a;
     margin-bottom: 8px;
     display: block;
 }
@@ -291,7 +368,7 @@ label {
 
 .form-control:focus {
     box-shadow: none;
-    border-color: #3498db;
+    border-color: #6b6b6b;
 }
 
 textarea.form-control {
@@ -312,22 +389,23 @@ textarea.form-control {
 
 /* Footer */
 .footer {
-    background-color: #fff;
-    color: #000;
+    background-color: #4a4a4a;
+    color: #fffaf3;
     padding: 20px 0;
     margin-top: 50px;
 }
 
 .footer p {
     margin-bottom: 0;
+    font-size: 0.9rem;
 }
 
 .social-link {
     color: white;
     text-decoration: none;
     margin: 0 10px;
-    font-size: 2em;
-    transition: color 0.3s;
+    font-size: 2rem;
+    transition: color 0.3s ease;
 }
 
 .facebook {
@@ -343,15 +421,15 @@ textarea.form-control {
 }
 
 .facebook:hover {
-    color:#6F8FAF;
+    color:#3498db;
 }
 
 .twitter:hover {
-    color: #808080;
+    color: #ffffff;
 }
 
 .instagram:hover {
-    color:#AA336A;
+    color:#e1306c;
 }
 
 /* Text colors */
