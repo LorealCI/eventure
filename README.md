@@ -32,12 +32,12 @@ You are view the user stories here in the [GitHub Projects Kanban Board](https:/
 
 
 # Wireframes
+These wireframes show the event lists pages for computer, tablet and mobile. The site is responsive to different screen sizes so users can access it easily accross different devices. 
 
 ![Computer & Mobile phone Wireframe](static/images/event-app-wireframe.png)
 
 # ERD
-We created the ERD with chatGPT
-Throughout the project we updated the event model field to include more features that we wanted to include.
+We created the ERD with chatGPT. Throughout the project we updated the event model field to include more features that we wanted to include.
 
 ![ERD](static/images/basic-erd.png)
 
@@ -71,7 +71,7 @@ This page is for approved users to create events that they want to post and adve
 We have user accounts so only approved authors can create & edit events but users can view and rsvp to the events they are going to attend. 
 
 # Footer
-The footer includes links to social media (if there were any.)
+The footer includes links to social media. 
 
 - **Inclusivity Notes:** 
   - Features include ARIA labels for screen readers.
@@ -119,7 +119,7 @@ To be completed at a later date!
 - Include the option for ticketing/purchasing.
 
 ## Credits
-We would like to credit Code Institute's CodeStar walkthrough blog and our![supervisor]Dillon(https://github.com/dillon-mccaffrey-ci) for supporting us. 
+We would like to credit Code Institute's CodeStar walkthrough blog and our supervisor Dillon(https://github.com/dillon-mccaffrey-ci) for supporting us. 
 
 <p align="right"><a href="#eventure">Back To Top</a></p>
 <br>
