@@ -208,6 +208,38 @@ h1, h2, h3, h4, h5, h6 {
     display: flex;
     align-items: center;
 }
+
+/* Pagination */
+.pagination {
+    margin-top: 20px;
+    text-align: center;
+}
+
+.pagination .page-item {
+    display: inline-block;
+    margin: 0 5px;
+}
+
+.pagination .page-link {
+    display: inline-block;
+    padding: 8px 12px;
+    color: #333;
+    text-decoration: none;
+    border: 1px solid #ddd;
+    border-radius: 4px;
+    transition: background-color 0.3s ease;
+}
+
+.pagination .page-link:hover {
+    background-color: #f4f4f4;
+}
+
+.pagination .page-item.active .page-link {
+    background-color: #333;
+    color: #fff;
+    border-color: #333;
+}
+
 /* About Us Page*/
 
 .about {
